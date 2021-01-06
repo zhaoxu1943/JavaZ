@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
  * @className MakeInsert10000Num
  * @projectName JavaConcentration
  * @date 2020/9/11 16:19
+ * 生日写的 测试代理
  */
 public class MakeInsert10000Num {
 
