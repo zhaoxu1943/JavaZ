@@ -21,9 +21,41 @@ import java.util.Map;
  **/
 public class UseJedis {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        //创建到aliyun的redis链接
         Jedis jedis = new Jedis("localhost",6379);
-        //jedis.auth("XXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        testRedisString(jedis);
+        //testRedisList(jedis);
+
+
+    }
+
+    /**
+     * redis 字符串
+     * @author zhaoxu
+     * @param
+     * @return
+     * @throws
+     */
+    public static void testRedisString(Jedis jedis){
+            //见
+            jedis.set("name","wdnmd");
+            String age = jedis.get("age");
+            System.out.println(age);
+            String name = jedis.get("name");
+            System.out.println(name);
+    }
+
+
+
+
+
+    /**
+     * redis list使用
+     * @author zhaoxu
+     * @param
+     * @return
+     * @throws
+     */
+    public static void testRedisList(Jedis jedis) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         List<UserInfo> userInfoList = new ArrayList<>();
         //序列化一个对象为JSON字符串
         //先初始化一个对象
@@ -42,8 +74,6 @@ public class UseJedis {
         userInfo2.setPhoneNumber("16666666666");
         userInfo2.setSex("female");
         userInfoList.add(userInfo2);
-
-
 
 
         //----------------------------
@@ -89,9 +119,5 @@ public class UseJedis {
             }
             jedis.hmset(key,value);
         }
-
-
-
-
     }
 }
