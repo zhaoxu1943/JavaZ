@@ -27,6 +27,6 @@ public class FreeTimeCalculator {
           earliestLeaveTime = earliestWorkTime.plusHours(8).plusMinutes(32);
       }
 
-      System.out.println(LocalDate.now()+"下班时间为"+ earliestLeaveTime);
+      System.out.println(LocalDate.now()+"下班时间为"+ earliestLeaveTime+",到工位时间为"+now);
   }
 }
