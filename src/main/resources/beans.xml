@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    <!-- 指定class属性，通过构造方法创建Bean实例 -->
+
+
+    <bean id="messageService" class="com.practice.spring.IOC.MyBeans.myComponent.Impl.MessageServiceImpl">
+
+    </bean>
+
+    <bean id="myspringbeancd" class="com.practice.spring.IOC.MyBeans.POJO.MySpringBean" >
+    </bean>
+
+<!--    <bean id="messageService1" class="com.practice.spring.IOC.MyBeans.myComponent.Impl.MessageServiceImpl">-->
+<!--    </bean>-->
+
+</beans>

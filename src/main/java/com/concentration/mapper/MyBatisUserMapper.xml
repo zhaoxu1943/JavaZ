@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--为这个mapper指定唯一的nameSpace,即包名+去除后缀的文件名-->
+<mapper namespace="com.concentration.mapper.MybatisUserMapper">
+
+
+    <select id="selectUser" resultType="com.concentration.entity.MyBatisUser">
+    select * from mybatis_user where user_id = #{userid}
+  </select>
+
+<!--    insert编写插入,id 必须是唯一的,使用parameterType指定插入时使用的参数类型
+useGeneratedKeys= true 使用数据库的自动增长策略
+#{userId}表示 参数中MybatisUser对象的 userId属性值 -->
+    <insert id="insertInto" parameterType="com.concentration.entity.MyBatisUser">
+        insert into mybatis_user(user_id,user_name) values(#{userId},#{userName})
+</insert>
+
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--属性,分三个级别
+    如果一个属性在不只一个地方进行了配置，那么，MyBatis 将按照下面的顺序来加载：
+首先读取在 properties 元素体内指定的属性。
+然后根据 properties 元素中的 resource 属性读取类路径下属性文件，或根据 url 属性指定的路径读取属性文件，并覆盖之前读取过的同名属性。
+最后读取作为方法参数传递的属性，并覆盖之前读取过的同名属性。
+因此，通过方法参数传递的属性具有最高优先级，resource/url 属性中指定的配置文件次之，最低优先级的则是 properties 元素中指定的属性。-->
+    <properties resource="application.properties">
+    </properties>
+
+    <!--配置日志实现,控制台打印sql.方便调试-->
+<!--    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>-->
+
+
+    <!--不过要记住：尽管可以配置多个环境，但每个 SqlSessionFactory 实例只能选择一种环境。default为默认配置id-->
+    <environments default="mysql">
+
+        <environment id="mysql">
+            <!--JDBC – 这个配置直接使用了 JDBC 的提交和回滚设施，它依赖从数据源获得的连接来管理事务作用域。-->
+            <!--如果你正在使用 Spring + MyBatis，则没有必要配置事务管理器，因为 Spring 模块会使用自带的管理器来覆盖前面的配置。-->
+           <transactionManager type="JDBC"/>
+            <!--这种数据源的实现利用“池”的概念将 JDBC 连接对象组织起来，避免了创建新的连接实例时所必需的初始化和认证时间。-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${spring.datasource.driver-class-name}"/>
+                <property name="url" value="${spring.datasource.url}"/>
+                <property name="username" value="${spring.datasource.username}"/>
+                <property name="password" value="${spring.datasource.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+<!--我们现在就要来定义 SQL 映射语句了,我们需要告诉 MyBatis 到哪里去找到这些语句-->
+    <mappers>
+        <mapper resource="com/concentration/mapper/MyBatisUserMapper.xml"/>
+        <mapper resource="com/concentration/mapper/UserMapper.xml"/>
+    </mappers>
+</configuration>
