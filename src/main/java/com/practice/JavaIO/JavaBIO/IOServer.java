@@ -22,6 +22,7 @@ public class IOServer {
         int serverPortNum = 8800;
         //create serverSocket
         //listen to 8000
+        //创建一个新的 ServerSocket，用以监听指定端口上的连接请求
         ServerSocket serverSocket = new ServerSocket(serverPortNum);
         new Thread(()->{
            //endless call
@@ -31,6 +32,7 @@ public class IOServer {
                     //The method blocks until a connection is made.
                     //随后返回一个新的socket链接,用于客户端和服务器之间的通信
                     //该ServerSocket对象将继续监听传入的连接
+                    //对accept()方法的调用将被阻塞，直到一个连接建立
                     Socket socket = serverSocket.accept();
                     // (2) 每一个新的连接都创建一个线程，负责读取数据,
                     //此时会有大量的线程处于休眠状态,只是等待输入或者输出数据就绪

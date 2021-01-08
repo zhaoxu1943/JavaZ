@@ -19,8 +19,19 @@ import java.util.Date;
  */
 public class NettyClient {
     public static void main(String[] args) throws InterruptedException {
+
+        //客户端引导
         Bootstrap bootstrap = new Bootstrap();
+        //客户端Bootstrap 可用于连接远端服务器，只绑定一个 EventLoopGroup
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
+
+        //至此引导声明完毕
+        //有了 Bootstrap 组件，我们可以更加方便地配置和启动 Netty 应用程序，
+        // 它是整个 Netty 的入口，串接了 Netty 所有核心组件的初始化工作。
+
+
+
+
 
                 // 1.指定线程模型
         bootstrap
