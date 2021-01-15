@@ -1,7 +1,7 @@
 package com.practice.JavaTime;
 
 /**
- * SimpleDateFormat 不是线程安全的
+ * SimpleDateFormat 不是线程安全的 //todo
  * @author zhaoxu
  * @className SimpleDateFormatIsNotThreadSafe
  * @projectName JavaConcentration
