@@ -37,6 +37,13 @@ import java.util.List;
  *
  * 广度优先遍历(层序遍历)
  *
+ * 二叉树用递归的方式进行前序,中序,后序的遍历,是最为自然的方式,代码非常简单
+ * 三种遍历方式的区别 仅仅是输出位置的不同
+ *
+ * 前序遍历输出在前
+ * 中序遍历输出在中间
+ * 后序遍历输出在后
+ *
  * @author zhaoxu
  * @className Tree
  * @projectName JavaConcentration
@@ -74,8 +81,8 @@ public class Tree {
    */
   public static TreeNode createBinaryTree(LinkedList<Integer> inputList){
         TreeNode  treeNode = null;
-        if (inputList==null ||inputList.size()==0){
-          throw new IllegalArgumentException("链表为NULL或无元素,无法生成二叉树");
+        if (inputList==null ||inputList.isEmpty()){
+         return null;
         }
         //利用链表的性质,Removes and returns the first element from this list.
         //移除且返回链表的第一个元素
@@ -99,38 +106,40 @@ public class Tree {
   public static void main(String[] args) {
 
     //二叉树的构建,返回根节点
-    LinkedList<Integer> linkedList = new LinkedList<>();
-    linkedList.add(1);
-    linkedList.add(2);
-    linkedList.add(3);
-    linkedList.add(4);
-    linkedList.add(154);
-    linkedList.add(13);
-    linkedList.add(132);
-    linkedList.add(11);
-
-    TreeNode root = createBinaryTree(linkedList);
-
-
-
-
-
-
-
-
-//    //写一颗二叉树,剑指offer page61
-//    //根节点
-//    TreeNode root = new TreeNode(10);
+//    LinkedList<Integer> linkedList = new LinkedList<>();
+//    linkedList.add(1);
+//    linkedList.add(2);
+//    linkedList.add(3);
+//    linkedList.add(4);
+//    linkedList.add(154);
+//    linkedList.add(13);
+//    linkedList.add(132);
+//    linkedList.add(11);
 //
-//    root.left = new TreeNode(6);
-//    root.right= new TreeNode(14);
-//
-//    root.left.left = new TreeNode(4);
-//    root.left.right = new TreeNode(8);
-//
-//    root.right.left = new TreeNode(12);
-//    root.right.right = new TreeNode(16);
+//    TreeNode root = createBinaryTree(linkedList);
 
+
+    //写一颗二叉树,剑指offer page61
+    //根节点
+    TreeNode root = new TreeNode(10);
+
+    root.left = new TreeNode(6);
+    root.right= new TreeNode(14);
+
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(8);
+
+    root.right.left = new TreeNode(12);
+    root.right.right = new TreeNode(16);
+
+    //前序递归
+    Tree tree = new Tree();
+    System.out.println("---前序");
+    tree.preOrderRecursion(root);
+    System.out.println("---中序");
+    tree.inOrderRecursion(root);
+    System.out.println("---后序");
+    tree.postOrderRecursion(root);
   }
 
 
@@ -142,19 +151,14 @@ public class Tree {
    * @return
    * @throws
    */
-  public ArrayList<Integer> firstOrderRecursion(TreeNode root) {
-    ArrayList<Integer> arrayList = Lists.newArrayList();
-    //基线条件-该节点为叶子节点
-    TreeNode temp = root;
-    while (temp.right==null&&temp.left==null){
-
-
-
-
-
-    }
-
-    return Lists.newArrayList();
+  public void preOrderRecursion(TreeNode root) {
+        if (root == null) {
+          return;
+        }else{
+            System.out.println(root.value);
+            preOrderRecursion(root.left);
+            preOrderRecursion(root.right);
+        }
 
   }
 
@@ -181,9 +185,14 @@ public class Tree {
    * @return
    * @throws
    */
-  public ArrayList<Integer> midOrderRecursion(TreeNode root) {
-    return Lists.newArrayList();
-
+  public void inOrderRecursion(TreeNode root) {
+    if (root==null){
+      return;
+    }else{
+      inOrderRecursion(root.left);
+      System.out.println(root.value);
+      inOrderRecursion(root.right);
+    }
   }
 
 
@@ -206,9 +215,14 @@ public class Tree {
    * @return
    * @throws
    */
-  public ArrayList<Integer> lastOrderRecursion(TreeNode root) {
-    return Lists.newArrayList();
-
+  public void postOrderRecursion(TreeNode root) {
+    if (root==null){
+        return;
+    }else{
+      postOrderRecursion(root.left);
+      postOrderRecursion(root.right);
+      System.out.println(root.value);
+    }
   }
 
 
