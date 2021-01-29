@@ -21,6 +21,8 @@ package com.practice.DataStructureAndAlgorithm.ProcessQueue;
  *
  * 循环队列充分的利用的数组的空间,避免了整体移动
  * 入队出队时间复杂度均为O(1)
+ *
+ * 派上用场了噢 谢谢小灰算法
  * @author zhaoxu
  * @className JavaArrayQueue
  * @projectName JavaConcentration
