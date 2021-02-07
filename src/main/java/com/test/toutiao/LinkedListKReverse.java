@@ -10,4 +10,7 @@ package com.test.toutiao;
  * @date 2021/2/7 12:53
  */
 public class LinkedListKReverse {
+
+
+
 }
