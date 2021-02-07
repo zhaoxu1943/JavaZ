@@ -25,11 +25,11 @@ import static com.practice.life.house.HouseCheck.*;
  */
 public class HouseCheckJson {
 
-  private static String computerUserName = "zhaoxu";
+  private static String computerUserName = "*";
 
   public static void main(String[] args) {
       HouseCheckJson houseCheckJson = new HouseCheckJson();
-      String filePath = "C:\\Users\\"+computerUserName+"\\OneDrive\\生活\\house\\龙回苑示例.json";
+      String filePath = "C:\\Users\\"+computerUserName+"\\OneDrive\\生活\\house\\feng3.json";
       houseCheckJson.processJson(filePath);
   }
 
