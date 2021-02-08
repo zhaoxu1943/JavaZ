@@ -177,6 +177,12 @@ public class Tree {
    * @throws
    */
   public ArrayList<Integer> firstOrderCycle(TreeNode root) {
+    while (root!=null) {
+
+    }
+
+
+
     return Lists.newArrayList();
   }
 
