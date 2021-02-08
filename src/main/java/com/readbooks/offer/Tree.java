@@ -102,7 +102,13 @@ public class Tree {
 
 
 
-
+  /**
+   * 测试方法
+   * @author zhaoxu
+   * @param
+   * @return
+   * @throws
+   */
   public static void main(String[] args) {
 
     //二叉树的构建,返回根节点

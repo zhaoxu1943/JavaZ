@@ -10,7 +10,15 @@ package com.practice.DataStructureAndAlgorithm.ProcessRecursion;
  * 所以编写递归时,一定要告诉它,何时停止递归
  * 所以:每个递归函数都有两个部分:
  * 基线条件(base case) 函数不再调用自己
- * 递归条件(recursive case) 指函数调用自己
+ * 递归需要终止,即须有有个出口,不能无限的调用
+ *
+ * 递归条件(recursive case) 指函数调用自己,即子问题需要与原始问题
+ * 为同样的事,且更为简单
+ *
+ *
+ *
+ *
+ *
  * @author zhaoxu
  * @className ZRecursion
  * @projectName JavaConcentration
