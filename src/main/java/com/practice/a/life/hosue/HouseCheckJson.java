@@ -1,21 +1,15 @@
-package com.practice.life.house;
+package com.practice.a.life.hosue;
 
-import cn.hutool.Hutool;
 import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.io.IORuntimeException;
 import cn.hutool.core.io.file.FileReader;
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.concentration.entity.UserInfo;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-import static com.practice.life.house.HouseCheck.*;
+import static com.practice.a.life.hosue.HouseCheck.*;
 
 /**
  * @author zhaoxu

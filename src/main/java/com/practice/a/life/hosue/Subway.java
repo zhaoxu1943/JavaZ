@@ -1,4 +1,4 @@
-package com.practice.life.house;
+package com.practice.a.life.hosue;
 
 /**
  * @author zhaoxu

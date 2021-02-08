@@ -1,9 +1,9 @@
-package com.practice.life.house;
+package com.practice.a.life.hosue;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
-import com.practice.life.house.House;
-import com.practice.life.house.Subway;
+import com.practice.a.life.hosue.House;
+import com.practice.a.life.hosue.Subway;
 
 import java.util.HashMap;
 
