@@ -1,0 +1,13 @@
+## db.setting文件
+## create user 'root123'@'%' identified by 'root123';
+## grant all privileges on practice.* to  'root123'@'%';
+url = jdbc:mysql://127.0.0.1:3306/practice
+user = root123
+pass = root123
+## 可选配置
+# 是否在日志中显示执行的SQL
+showSql = true
+# 是否格式化显示的SQL
+formatSql = false
+# 是否显示SQL参数
+showParams = true
