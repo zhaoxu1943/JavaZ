@@ -1,10 +1,7 @@
 package com.readbooks.offer;
 
-import com.google.common.collect.Lists;
-
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Stack;
 
 /**
  * 树的逻辑
@@ -141,11 +138,22 @@ public class Tree {
     //前序递归
     Tree tree = new Tree();
     System.out.println("---前序");
+    System.out.println("---递归");
     tree.preOrderRecursion(root);
+    System.out.println("---循环");
+    tree.preOrderCycle(root);
+
     System.out.println("---中序");
+    System.out.println("---递归");
     tree.inOrderRecursion(root);
+    System.out.println("---循环");
+    tree.inOrderCycle(root);
     System.out.println("---后序");
+    System.out.println("---递归");
     tree.postOrderRecursion(root);
+    System.out.println("---循环");
+    tree.postOrderCycle(root);
+
   }
 
 
@@ -181,14 +189,26 @@ public class Tree {
    * @return
    * @throws
    */
-  public ArrayList<Integer> firstOrderCycle(TreeNode root) {
-    while (root!=null) {
-
+  public void preOrderCycle(TreeNode root) {
+    //循环遍历二叉树的容器-栈
+    Stack<TreeNode> stack = new Stack<>();
+    //临时节点
+    TreeNode treeNode = root;
+    while (treeNode!=null||!stack.isEmpty()) {
+      //迭代访问节点的左孩子,并入栈
+      while(treeNode!=null){
+        // 前序
+        System.out.println(treeNode.value);
+        stack.push(treeNode);
+        treeNode= treeNode.left;
+      }
+    //此时while将遍历完左孩子,弹出栈顶访问右孩子
+      //即回溯
+      if (!stack.isEmpty()){
+        treeNode = stack.pop();
+        treeNode = treeNode.right;
+      }
     }
-
-
-
-    return Lists.newArrayList();
   }
 
 
@@ -220,9 +240,29 @@ public class Tree {
    * @return
    * @throws
    */
-  public ArrayList<Integer> midOrderCycle(TreeNode root) {
-    return Lists.newArrayList();
+  public void inOrderCycle(TreeNode root) {
+    Stack<TreeNode> stack =new Stack<>();
+    TreeNode treeNode = root;
+
+    //当treeNode不为空,即节点可继续深度优先遍历的情况
+    //栈不为空 则是需要 回溯
+    while (treeNode!=null||!stack.isEmpty()) {
+      //迭代访问节点的左孩子,并入栈
+      while(treeNode!=null){
+        stack.push(treeNode);
+        treeNode= treeNode.left;
+      }
+      //此时while将遍历完左孩子,弹出栈顶访问右孩子
+      //即回溯
+      if (!stack.isEmpty()){
+        treeNode = stack.pop();
+        //中序:回溯时开始打印
+        System.out.println(treeNode.value);
+        treeNode = treeNode.right;
+      }
+    }
   }
+
 
 
   /**
@@ -245,18 +285,38 @@ public class Tree {
 
   /**
    * 后序-循环
+   * //todo 树后序循环遍历
    * @author zhaoxu
    * @param
    * @return
    * @throws
    */
-  public ArrayList<Integer> lastOrderCycle(TreeNode root) {
-    return Lists.newArrayList();
+  public void postOrderCycle(TreeNode root) {
+    Stack<TreeNode> stack =new Stack<>();
+    TreeNode treeNode = root;
+
+    //当treeNode不为空,即节点可继续深度优先遍历的情况
+    //栈不为空 则是需要 回溯
+    while (treeNode!=null||!stack.isEmpty()) {
+      //迭代访问节点的左孩子,并入栈
+      while(treeNode!=null){
+        stack.push(treeNode);
+        treeNode= treeNode.left;
+      }
+      //此时while将遍历完左孩子,弹出栈顶访问右孩子
+      //即回溯
+      if (!stack.isEmpty()){
+        treeNode = stack.pop();
+        treeNode = treeNode.right;
+      }
+    }
   }
 
-
-
-
-
-
 }
+
+
+
+
+
+
+
