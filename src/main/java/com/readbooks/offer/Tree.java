@@ -1,5 +1,7 @@
 package com.readbooks.offer;
 
+import com.practice.DataStructureAndAlgorithm.leetcode.structure.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -48,23 +50,6 @@ import java.util.Stack;
  */
 public class Tree {
 
-  /**
-   * TreeNode节点
-   * 包含左孩子,右孩子和自身value值
-   * @author zhaoxu
-   * @param
-   * @return
-   * @throws
-   */
-  static class TreeNode {
-    int value;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-      this.value = x;
-    }
-  }
 
 
   /**
@@ -165,7 +150,7 @@ public class Tree {
    * @return
    * @throws
    */
-  public void preOrderRecursion(TreeNode root) {
+  public static void preOrderRecursion(TreeNode root) {
         if (root == null) {
           return;
         }else{
@@ -222,7 +207,7 @@ public class Tree {
    * @return
    * @throws
    */
-  public void inOrderRecursion(TreeNode root) {
+  public static void inOrderRecursion(TreeNode root) {
     if (root==null){
       return;
     }else{
@@ -272,7 +257,7 @@ public class Tree {
    * @return
    * @throws
    */
-  public void postOrderRecursion(TreeNode root) {
+  public static void postOrderRecursion(TreeNode root) {
     if (root==null){
         return;
     }else{
