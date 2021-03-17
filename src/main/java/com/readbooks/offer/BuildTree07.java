@@ -93,6 +93,54 @@ public class BuildTree07 {
 
 
 
+
+
+    /**
+     * 时间复杂度O(n^2)
+     * 可以使用map引入空间复杂度 降低时间复杂度
+     * @author zhaoxu
+     * @param
+     * @return
+     * @throws
+     */
+
+
+    private Map<Integer, Integer> valIndexMap;
+
+    public TreeNode buildTree3(int[] preorder, int[] inorder) {
+        //根节点的值
+        valIndexMap = new HashMap<>();
+        for (int i = 0; i < inorder.length; i++) {
+            valIndexMap.put(inorder[i],i);
+        }
+        return getTreeNode(preorder, inorder);
+
+    }
+
+    public TreeNode getTreeNode(int[] preorder, int[] inorder) {
+        if (preorder.length!=0){
+            int rootIntVal = preorder[0];
+            // 根节点带入右子树,得到根节点值的index
+            int rootIndexInInorder = valIndexMap.get(rootIntVal);
+            //之后进行数组的拷贝,拿到递归的参数
+            // 左开右闭的!!!!!!!!!!!!
+            int[] leftChildPreorder = Arrays.copyOfRange(preorder,1,rootIndexInInorder+1);
+            int[] leftChildInorder = Arrays.copyOfRange(inorder,0,rootIndexInInorder);
+
+            int[] rightChildPreorder = Arrays.copyOfRange(preorder,rootIndexInInorder+1,preorder.length);
+            int[] rightChildInorder = Arrays.copyOfRange(inorder,rootIndexInInorder+1,inorder.length);
+
+            TreeNode leftChild  = buildTree(leftChildPreorder,leftChildInorder);
+            TreeNode rightChild  = buildTree(rightChildPreorder,rightChildInorder);
+
+            TreeNode treeNode = new TreeNode(rootIntVal,leftChild,rightChild);
+            return treeNode;
+        }else {
+            return null;
+        }
+    }
+
+
     /**
      * 官方题解
      * 引入map降低复杂度
@@ -127,13 +175,15 @@ public class BuildTree07 {
     }
 
     public TreeNode buildTree2(int[] preorder, int[] inorder) {
-        int n = preorder.length;
+
+        int length = preorder.length;
         // 构造哈希映射，帮助我们快速定位根节点
-        indexMap = new HashMap<Integer, Integer>();
-        for (int i = 0; i < n; i++) {
+        //不重复 所以可以使用map
+        indexMap = new HashMap<>();
+        for (int i = 0; i < length; i++) {
             indexMap.put(inorder[i], i);
         }
-        return myBuildTree(preorder, inorder, 0, n - 1, 0, n - 1);
+        return myBuildTree(preorder, inorder, 0, length - 1, 0, length - 1);
     }
 
 
